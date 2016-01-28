@@ -93,7 +93,7 @@ function findMode(array) {
 */
 
 
-// Tried to do it by storing the array element and counter in a dictionary.
+// Third take, dictionary
 
 function findMode(array) {
     sort(array);
@@ -104,8 +104,38 @@ function findMode(array) {
         if (array[x] === array[y]) {
             var element = array[x].toString();
             counter ++;
+            repeatObject[element] = counter;
+            
+        }
+        else {
+            counter = 0;
+            continue;
+        }
+    }
+    var largest = 0;
+    var indexOfLargest;
+    for (var key in repeatObject) {
+        if (repeatObject[key] > largest) {
+            largest = repeatObject[key];
+            indexOfLargest = key;
+        }
+    }
+    var answer = "The mode is " + indexOfLargest + ", it was repeated " + repeatObject[indexOfLargest] + " times";
+    return answer;
+}
+
+// First take at doing it with a dictionary
+/*
+function findMode(array) {
+    sort(array);
+    var repeatObject = {};
+    var counter = 0;
+    for (x in array) {
+        y = parseInt(x) + 1;
+        if (array[x] === array[y]) {
+            var element = array[x].toString();
+            counter ++;
             repeatObject = { [element] : counter };
-//            console.log(repeatObject)
             
         }
         else {
@@ -115,6 +145,33 @@ function findMode(array) {
     }
     console.log(repeatObject)
 }
+*/
+
+
+// Second stab at using an object
+/*
+function findMode(array) {
+    sort(array);
+    var repeatObject = new Object();
+    repeatObject.repeatingElements = [];
+    repeatObject.numberOfRepetitions = [];
+    var counter = 0;
+    for (x in array) {
+        y = parseInt(x) + 1;
+        if (array[x] === array[y]) {
+            counter ++;
+            repeatObject.repeatingElements.push(array[x]);
+            repeatObject.numberOfRepetitions.push(counter);
+            
+        }
+        else {
+            counter = 0;
+            continue;
+        }
+    }
+    console.log(repeatObject)
+}
+*/
 
 
 
