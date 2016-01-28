@@ -28,7 +28,7 @@ function sort(array) {
   }
  }
     return array;
-}()
+}
 
 sort(numberArray);
 
@@ -36,6 +36,7 @@ sort(numberArray);
 
 // Find the mediannumber
 function getMedian(numbers) {
+    sort(numbers);
     var median;
     noRepeats = [];
     for (x in numbers) {
