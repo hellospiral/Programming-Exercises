@@ -62,3 +62,86 @@ function getMedian(numbers) {
 getMedian(numberArray);
 
 
+// Find the Mode; Mode is the number that is repeated more often than any other number. In this case it is 9
+
+numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
+
+// First, sort the array
+
+// Then, loop through the array and compare each element to its neighbor
+
+// If the element matches its neighbor, increase a counter
+
+/*
+function findMode(array) {
+    sort(array);
+    var counter = 0;
+    for (i in array) {
+        y = parseInt(x) + 1;
+        if (array[x] === array[y]) {
+            counter ++;
+            
+            
+        }
+        else {
+            document.write(array[x] + ' was repeated ' + counter + ' times <br>');
+            counter = 0;
+
+        }
+    }
+}
+*/
+
+
+// Tried to do it by storing the array element and counter in a dictionary.
+
+function findMode(array) {
+    sort(array);
+    var repeatObject = {};
+    var counter = 0;
+    for (x in array) {
+        y = parseInt(x) + 1;
+        if (array[x] === array[y]) {
+            var element = array[x].toString();
+            counter ++;
+            repeatObject = { [element] : counter };
+//            console.log(repeatObject)
+            
+        }
+        else {
+            counter = 0;
+            continue;
+        }
+    }
+    console.log(repeatObject)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
