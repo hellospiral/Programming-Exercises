@@ -1,7 +1,7 @@
 numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
 
 
-// Find the mean
+// Exercise 1: Find the mean
 var total = 0;
 
 for (x in numberArray) {
@@ -13,9 +13,9 @@ var mean = total / numberArray.length;
 console.log(mean)
 
 
+// Exercise 2: Find the median number
 
-
-// Sort the array
+// First, sort the array
 function sort(array) {
     for (x in array) {
         y = parseInt(x) + 1;
@@ -32,9 +32,7 @@ function sort(array) {
 
 sort(numberArray);
 
-
-
-// Find the mediannumber
+// Now, put sort function in getMedian function.
 function getMedian(numbers) {
     sort(numbers);
     var median;
@@ -62,56 +60,31 @@ function getMedian(numbers) {
 getMedian(numberArray);
 
 
-// Find the Mode; Mode is the number that is repeated more often than any other number. In this case it is 9
+// Exercise 3: Find the Mode; mode is the number that is repeated more often than any other number. In this case it is 9
 
 numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
 
+function findMode(array) {
 // First, sort the array
-
-// Then, loop through the array and compare each element to its neighbor
-
-// If the element matches its neighbor, increase a counter
-
-/*
-function findMode(array) {
-    sort(array);
-    var counter = 0;
-    for (i in array) {
-        y = parseInt(x) + 1;
-        if (array[x] === array[y]) {
-            counter ++;
-            
-            
-        }
-        else {
-            document.write(array[x] + ' was repeated ' + counter + ' times <br>');
-            counter = 0;
-
-        }
-    }
-}
-*/
-
-
-// Third take, dictionary
-
-function findMode(array) {
     sort(array);
     var repeatObject = {};
     var counter = 0;
+// Then, loop through the array and compare each element to its neighbor
     for (x in array) {
         y = parseInt(x) + 1;
+// If the element matches its neighbor, increase the counter, and add the element and the value of the counter to the 'repeat' object
         if (array[x] === array[y]) {
             var element = array[x].toString();
             counter ++;
-            repeatObject[element] = counter;
-            
+            repeatObject[element] = counter;      
         }
+// When the repetitions of elements ends, reset the counter
         else {
             counter = 0;
             continue;
         }
     }
+// Loop through the object to determine which element has the highest counter value
     var largest = 0;
     var indexOfLargest;
     for (var key in repeatObject) {
@@ -120,85 +93,8 @@ function findMode(array) {
             indexOfLargest = key;
         }
     }
-    var answer = "The mode is " + indexOfLargest + ", it was repeated " + repeatObject[indexOfLargest] + " times";
+// return the answer as a string
+    var answer = "The mode is " + indexOfLargest + ", it was repeated " + (repeatObject[indexOfLargest] + 1) + " times";
     return answer;
 }
-
-// First take at doing it with a dictionary
-/*
-function findMode(array) {
-    sort(array);
-    var repeatObject = {};
-    var counter = 0;
-    for (x in array) {
-        y = parseInt(x) + 1;
-        if (array[x] === array[y]) {
-            var element = array[x].toString();
-            counter ++;
-            repeatObject = { [element] : counter };
-            
-        }
-        else {
-            counter = 0;
-            continue;
-        }
-    }
-    console.log(repeatObject)
-}
-*/
-
-
-// Second stab at using an object
-/*
-function findMode(array) {
-    sort(array);
-    var repeatObject = new Object();
-    repeatObject.repeatingElements = [];
-    repeatObject.numberOfRepetitions = [];
-    var counter = 0;
-    for (x in array) {
-        y = parseInt(x) + 1;
-        if (array[x] === array[y]) {
-            counter ++;
-            repeatObject.repeatingElements.push(array[x]);
-            repeatObject.numberOfRepetitions.push(counter);
-            
-        }
-        else {
-            counter = 0;
-            continue;
-        }
-    }
-    console.log(repeatObject)
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
