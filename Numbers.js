@@ -98,3 +98,30 @@ function findMode(array) {
     return answer;
 }
 
+
+
+// Exercise 4: Find the range; range is the difference between the largest and lowest number. In this case largest is 28 and lowest is 2. So 28-2 is 26
+
+numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
+
+function findRange(array) {
+    // First, find the largest
+    var largest = 0;
+    for (i in array) {
+        if (array[i] > largest) {
+            largest = array[i];
+        }
+    }
+    // Second, find the smallest
+    var smallest = array[0];
+    for (i in array) {
+        if (array[i] < smallest) {
+            smallest = array[i];
+        }
+    }
+    // Third, subtact smallest from largest
+    range = largest - smallest;
+    return range;      
+}
+
+findRange(numberArray);
