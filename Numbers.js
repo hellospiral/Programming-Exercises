@@ -125,3 +125,57 @@ function findRange(array) {
 }
 
 findRange(numberArray);
+
+// Exercise 5: Matrix
+// Write a program that will form a matrix like the below table
+
+/*  0	1	2	3	4
+    1	0	1	2	3
+    2	1	0	1	2
+    3	2	1	0	1
+    4	3	2	1	0  */
+
+matrixArray = [0, 1, 2, 3, 4]
+
+function maker(array) {
+  newArray = [];
+  newArray[0] = array[0]+1;
+  newArray[1] = array[0];
+  newArray[2] = array[1];
+  newArray[3] = array[2];
+  newArray[4] = array[3];
+  return newArray;
+}
+
+
+
+
+
+newArray = [];
+for (i = 1; i >=0; i--) {
+    newArray.push(i);
+}
+for (i = 1; i <= (matrixArray.length - newArray.length +2); i++) {
+    newArray.push(i);
+}
+
+
+/*
+function makeNewArray(array) {
+    console.log(array);
+    newArray = [];
+    for (i = 1; i >=0; i--) {
+        newArray.push(i);
+    }
+    for (i = 1; i <= (matrixArray.length - newArray.length +2); i++) {
+        newArray.push(i);
+    }
+    makeNewArray(newArray);
+    
+}
+
+makeNewArray(matrixArray);
+*/
+
+
+
