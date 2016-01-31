@@ -152,3 +152,24 @@ maker(matrixArray);
 while (newArray[0] <= 4) {
     maker(newArray);
 }
+
+// Exercise 6: Find the numbers that are not repeated in 23,9,14,2,28,19,3,15,9,25,2,4,9
+
+var nums = [23,9,14,2,28,19,3,15,9,25,2,4,9]
+
+function findNotRepeated(array) {
+    notRepeated = [];
+    sort(nums);
+    for (i in nums) {
+        var nextIndex = parseInt(i)+1;
+        if ((nums[i] !== nums[nextIndex]) && (nums[nextIndex] !== nums[nextIndex + 1])) {
+            notRepeated.push(nums[i]);
+        }
+    }
+
+    return("These numbers are not repeated: " + notRepeated.join(','));
+}
+
+findNotRepeated(nums);
+
+
