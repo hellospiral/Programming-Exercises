@@ -41,3 +41,21 @@ function checkPalindrome(string) {
         console.log(string + " is not a palindrome.");
     }
 }
+
+// 3. Write a JavaScript function that generates all combinations of a string.
+// Example string : 'dog' 
+// Expected Output : d,do,dog,o,og,g 
+
+function stringCombinations(string) {
+    var masterList = [];
+    for (i in string) {
+        masterList.push(string[i]);
+        for (var counter = parseInt(i) + 2; counter <= string.length; counter++) {
+            var start = parseInt(i);
+            masterList.push(string.slice(start, counter));
+        }
+    }
+    return masterList.toString();
+}
+
+stringCombinations('cats');
