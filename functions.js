@@ -59,3 +59,56 @@ function stringCombinations(string) {
 }
 
 stringCombinations('cats');
+
+
+
+
+// 4. In language of your choice, write a routine that reverses a string in place
+
+// First, a function that puts the first character at the end
+function firstAtEnd(string) {
+    var string = string + string[0];
+    var string = string.slice(1, string.length);
+    return string;
+}
+
+
+// Then, put the first character in before the last character;
+string = string.slice(1, string.length - 1) + string[0] + string[string.length - 1];
+
+
+// Combine these two expressions
+function firstTwoAtEnd(string) {
+    string = string + string[0];
+    string = string.slice(1, string.length);
+    string = string.slice(1, string.length - 1) + string[0] + string[string.length - 1];
+    return string;
+}
+
+
+// add a third, fourth
+function firstFourToEnd(string) {
+    string = string + string[0];
+    string = string.slice(1, string.length);
+    string = string.slice(1, string.length - 1) + string[0] + string[string.length - 1];
+    string = string.slice(1, string.length - 2) + string[0] + string.slice(string.length - 2, string.length);
+    string = string.slice(1, string.length - 3) + string[0] + string.slice(string.length - 3, string.length);
+    return string;
+}
+
+// Finally, make a loop to finish it
+function reverseString(string) {
+    var totalChar = string.length -1;
+    string = string + string[0];
+    string = string.slice(1, string.length);
+    string = string.slice(1, string.length - 1) + string[0] + string[string.length - 1];
+    for (i = 2; i <= totalChar; i++) {
+        string = string.slice(1, string.length - i) + string[0] + string.slice(string.length - i, string.length);
+    }
+    return string;
+}
+// Yay!
+
+//Now write a routine that reverses each word in a string
+//(words are characters separated by spaces)
+//Now write a routine that reverses the order of words in a string
