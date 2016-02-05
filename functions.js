@@ -107,8 +107,53 @@ function reverseString(string) {
     }
     return string;
 }
-// Yay!
+// It works!
 
 //Now write a routine that reverses each word in a string
 //(words are characters separated by spaces)
+
+function wordReverser(sentence) {
+    var foundAtPosition = 0;
+    var lastIndex = 0;
+    var newString = "";
+    var reverser = function(string) {
+        var totalChar = string.length -1;
+        string = string + string[0];
+        string = string.slice(1, string.length);
+        string = string.slice(1, string.length - 1) + string[0] + string[string.length - 1];
+        for (i = 2; i <= totalChar; i++) {
+            string = string.slice(1, string.length - i) + string[0] + string.slice(string.length - i, string.length);
+        }
+        return string;  
+    }
+    
+    while (foundAtPosition != -1) {
+        foundAtPosition = sentence.indexOf(" ", foundAtPosition);
+        if (foundAtPosition === -1) {
+            var word = sentence.slice(lastIndex);
+            word = word.trim();
+            var reverseWord = reverser(word);
+            newString = newString + ' ' + reverseWord;
+        
+        }
+        else if (foundAtPosition != -1) {
+            var word = sentence.slice(lastIndex, foundAtPosition);
+            word = word.trim();
+            var reverseWord = reverser(word);
+            newString = newString + ' ' + reverseWord;
+            lastIndex = foundAtPosition;
+        }
+
+    
+        if (foundAtPosition != -1) {
+            foundAtPosition ++;
+        }
+    
+    }
+    
+    newString = newString.trim();
+    return newString;
+}
+
+
 //Now write a routine that reverses the order of words in a string
