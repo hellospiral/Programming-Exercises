@@ -1,69 +1,4 @@
-// 2. Write a JavaScript function that reverses a number
-	
-function reverseNumber(num) {
-    var digits = (""+num).split("");
-    var reversedArray = [];
-    for (i in digits) {
-        reversedArray.unshift(digits[i]);
-    }
-    return reversedArray;
-}
-
-
-
-// 2. Write a JavaScript function that checks whether a passed string is palindrome or not
-
-// First, reverse the string
-function reverseString(string) {
-    var characters = string.split("")
-    var reversedArray = [];
-    for (i in characters) {
-        reversedArray.unshift(string[i]);
-    }
-    var reversedString = reversedArray.join("");
-    return reversedString;
-}
-
-
-
-// modified reverseString funciton to check for palindrome
-function checkPalindrome(string) {
-    var characters = string.split("")
-    var reversedArray = [];
-    for (i in characters) {
-        reversedArray.unshift(string[i]);
-    }
-    var reversedString = reversedArray.join("");
-    if (reversedString == string) {
-        console.log(string + " is a palindrome!");
-    }
-    else {
-        console.log(string + " is not a palindrome.");
-    }
-}
-
-// 3. Write a JavaScript function that generates all combinations of a string.
-// Example string : 'dog' 
-// Expected Output : d,do,dog,o,og,g 
-
-function stringCombinations(string) {
-    var masterList = [];
-    for (i in string) {
-        masterList.push(string[i]);
-        for (var counter = parseInt(i) + 2; counter <= string.length; counter++) {
-            var start = parseInt(i);
-            masterList.push(string.slice(start, counter));
-        }
-    }
-    return masterList.toString();
-}
-
-stringCombinations('cats');
-
-
-
-
-// 4. In language of your choice, write a routine that reverses a string in place
+// Challenge 4: In language of your choice, write a routine that reverses a string in place
 
 // First, a function that puts the first character at the end
 function firstAtEnd(string) {
@@ -73,7 +8,7 @@ function firstAtEnd(string) {
 }
 
 
-// Then, put the first character in before the last character;
+// Then, insert the first character before the last character;
 string = string.slice(1, string.length - 1) + string[0] + string[string.length - 1];
 
 
@@ -96,7 +31,7 @@ function firstFourToEnd(string) {
     return string;
 }
 
-// Finally, make a loop to finish it
+// Finally, replace repetitive lines with a loop:
 function reverseString(string) {
     var totalChar = string.length -1;
     string = string + string[0];
@@ -107,7 +42,7 @@ function reverseString(string) {
     }
     return string;
 }
-// It works!
+
 
 //Now write a routine that reverses each word in a string
 //(words are characters separated by spaces)
@@ -157,3 +92,97 @@ function wordReverser(sentence) {
 
 
 //Now write a routine that reverses the order of words in a string
+
+function sentenceReverser(sentence) {
+    var foundAtPosition = 0;
+    var lastIndex = 0;    
+    var newString = "";
+    
+    while (foundAtPosition != -1) {
+        foundAtPosition = sentence.indexOf(" ", foundAtPosition);
+        if (foundAtPosition === -1) {
+            var word = sentence.slice(lastIndex);
+            word = word.trim();
+            newString = word + ' ' + newString;
+
+        }
+        else if (foundAtPosition != -1) {
+            var word = sentence.slice(lastIndex, foundAtPosition);
+            word = word.trim();
+            newString = word + ' ' + newString;
+            lastIndex = foundAtPosition;
+        }
+
+
+        if (foundAtPosition != -1) {
+            foundAtPosition ++;
+        }
+
+    }
+    return newString;
+}
+
+
+
+// Chalenge 3: Write a JavaScript function that generates all combinations of a string.
+// Example string : 'dog' 
+// Expected Output : d,do,dog,o,og,g 
+
+function stringCombinations(string) {
+    var masterList = [];
+    for (i in string) {
+        masterList.push(string[i]);
+        for (var counter = parseInt(i) + 2; counter <= string.length; counter++) {
+            var start = parseInt(i);
+            masterList.push(string.slice(start, counter));
+        }
+    }
+    return masterList.toString();
+}
+
+stringCombinations('cats');
+
+
+
+// Challenge 2: Write a JavaScript function that checks whether a passed string is palindrome or not
+
+// First, reverse the string
+function reverseString(string) {
+    var characters = string.split("")
+    var reversedArray = [];
+    for (i in characters) {
+        reversedArray.unshift(string[i]);
+    }
+    var reversedString = reversedArray.join("");
+    return reversedString;
+}
+
+
+// modified reverseString funciton to check for palindrome
+function checkPalindrome(string) {
+    var characters = string.split("")
+    var reversedArray = [];
+    for (i in characters) {
+        reversedArray.unshift(string[i]);
+    }
+    var reversedString = reversedArray.join("");
+    if (reversedString == string) {
+        console.log(string + " is a palindrome!");
+    }
+    else {
+        console.log(string + " is not a palindrome.");
+    }
+}
+
+
+
+// Challenge 1: Write a JavaScript function that reverses a number
+	
+function reverseNumber(num) {
+    var digits = (""+num).split("");
+    var reversedArray = [];
+    for (i in digits) {
+        reversedArray.unshift(digits[i]);
+    }
+    return reversedArray;
+}

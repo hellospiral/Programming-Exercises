@@ -141,6 +141,9 @@ function findMode(array) {
 
 // Challenge 2: Find the median number
 
+numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
+
+
 // First, sort the array
 function sort(array) {
     for (x in array) {
