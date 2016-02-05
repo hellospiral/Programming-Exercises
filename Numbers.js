@@ -1,4 +1,4 @@
-//Take an array of numbers and return another array containing each of those numbers divided by five.
+// Challenge 7: Take an array of numbers and return another array containing each of those numbers divided by five.
 
 function operatedElementsToNewArray (arr, fn) {
   var newArr = [];
@@ -19,11 +19,9 @@ function(item) {
 }
 );
 
-numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
 
 
-
-// Exercise 6: Find the numbers that are not repeated in 23,9,14,2,28,19,3,15,9,25,2,4,9
+// Challenge 6: Find the numbers that are not repeated in 23,9,14,2,28,19,3,15,9,25,2,4,9
 
 var nums = [23,9,14,2,28,19,3,15,9,25,2,4,9]
 
@@ -44,7 +42,7 @@ findNotRepeated(nums);
 
 
 
-// Exercise 5: Matrix
+// Challenge 5: Matrix
 // Write a program that will form a matrix like the below table
 
 /*  0	1	2	3	4
@@ -73,7 +71,7 @@ while (newArray[0] <= 4) {
 
 
 
-// Exercise 4: Find the range; range is the difference between the largest and lowest number. In this case largest is 28 and lowest is 2. So 28-2 is 26
+// Challenge 4: Find the range; range is the difference between the largest and lowest number. In this case largest is 28 and lowest is 2. So 28-2 is 26
 
 numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
 
@@ -101,7 +99,7 @@ findRange(numberArray);
 
 
 
-// Exercise 3: Find the Mode; mode is the number that is repeated more often than any other number. In this case it is 9
+// Challenge 3: Find the Mode; mode is the number that is repeated more often than any other number. In this case it is 9
 
 numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
 
@@ -141,7 +139,7 @@ function findMode(array) {
 
 
 
-// Exercise 2: Find the median number
+// Challenge 2: Find the median number
 
 // First, sort the array
 function sort(array) {
@@ -189,7 +187,10 @@ getMedian(numberArray);
 
 
 
-// Exercise 1: Find the mean
+// Challenge 1: Find the mean
+
+numberArray = [23,9,14,2,28,19,3,15,9,25,2,4,9]
+
 var total = 0;
 
 for (x in numberArray) {
