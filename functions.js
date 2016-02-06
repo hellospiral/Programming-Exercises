@@ -1,3 +1,57 @@
+// Challenge 5: Write a program to solve the OddWordProblem
+// For example, the input string: 'whats the matter with kansas.' becomes: 'whats eht matter htiw kansas.'
+
+// Matt: "Aren't those the even words? Or are you counting from 0?" ;-) 
+
+function evenWordReverser(sentence) {
+    var wordCounter = 0;
+    var lastSpaceIndex = 0;
+    var generatedString = '';
+    var backwardWord;
+
+    function reverseString(string) {
+        var totalChar = string.length -1;
+        string = string + string[0];
+        string = string.slice(1, string.length);
+        string = string.slice(1, string.length - 1) + string[0] + string[string.length - 1];
+        for (i = 2; i <= totalChar; i++) {
+            string = string.slice(1, string.length - i) + string[0] + string.slice(string.length - i, string.length);
+        }
+        backwardWord = string;
+    }
+
+    for (i in sentence) {
+      if (sentence[i] === " ") {
+        var newSpaceIndex = i;
+        var word = sentence.slice(lastSpaceIndex, newSpaceIndex);
+        word = word.trim();
+        wordCounter++;
+        if (wordCounter % 2 === 0) {
+            reverseString(word);
+            generatedString = generatedString + backwardWord + ' ';
+        }
+        else {
+            generatedString = generatedString + word + ' ';
+        }
+        lastSpaceIndex = newSpaceIndex;
+      }
+      if (parseInt(i) === parseInt(sentence.length -1)) {
+          wordCounter++;
+          var lastWord = sentence.slice(lastSpaceIndex, sentence.length).trim();
+          if (wordCounter % 2 === 0) {
+              reverseString(lastWord);
+              generatedString = generatedString + backwardWord;
+          }
+          else {
+              generatedString = generatedString + lastWord;
+          }
+      }
+    }
+    return generatedString;
+}
+
+
+
 // Challenge 4: In language of your choice, write a routine that reverses a string in place
 
 // First, a function that puts the first character at the end
